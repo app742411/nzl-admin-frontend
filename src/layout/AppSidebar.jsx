@@ -46,10 +46,11 @@ export default function AppSidebar() {
     },
 
     {
-      name: t("menu.users"),
+      name: t("menu.users_management"),
       icon: <UserCircleIcon />,
       subItems: [
         { name: t("menu.all_users"), path: "/users", permission: "view_users" },
+        { name: t("menu.activity_users"), path: "/activity-users", permission: "view_users" },
       ],
     },
 
@@ -271,11 +272,10 @@ export default function AppSidebar() {
                       : { type: menuType, index },
                   )
                 }
-                className={`menu-item group ${
-                  openSubmenu?.index === index && openSubmenu?.type === menuType
-                    ? "menu-item-active"
-                    : "menu-item-inactive"
-                }`}
+                className={`menu-item group ${openSubmenu?.index === index && openSubmenu?.type === menuType
+                  ? "menu-item-active"
+                  : "menu-item-inactive"
+                  }`}
               >
                 <span className="menu-item-icon-size">{nav.icon}</span>
 
@@ -285,12 +285,11 @@ export default function AppSidebar() {
 
                 {(isExpanded || isHovered || isMobileOpen) && (
                   <ChevronDownIcon
-                    className={`ml-auto w-5 h-5 transition-transform ${
-                      openSubmenu?.index === index &&
+                    className={`ml-auto w-5 h-5 transition-transform ${openSubmenu?.index === index &&
                       openSubmenu?.type === menuType
-                        ? "rotate-180 text-brand-500"
-                        : ""
-                    }`}
+                      ? "rotate-180 text-brand-500"
+                      : ""
+                      }`}
                   />
                 )}
               </button>
@@ -305,11 +304,10 @@ export default function AppSidebar() {
                   style={{
                     height:
                       openSubmenu?.index === index &&
-                      openSubmenu?.type === menuType
-                        ? `${
-                            subMenuRefs.current[`${menuType}-${index}`]
-                              ?.scrollHeight
-                          }px`
+                        openSubmenu?.type === menuType
+                        ? `${subMenuRefs.current[`${menuType}-${index}`]
+                          ?.scrollHeight
+                        }px`
                         : "0px",
                   }}
                 >
@@ -318,11 +316,10 @@ export default function AppSidebar() {
                       <li key={subItem.path}>
                         <Link
                           to={subItem.path}
-                          className={`menu-dropdown-item ${
-                            isActive(subItem.path)
-                              ? "menu-dropdown-item-active"
-                              : "menu-dropdown-item-inactive"
-                          }`}
+                          className={`menu-dropdown-item ${isActive(subItem.path)
+                            ? "menu-dropdown-item-active"
+                            : "menu-dropdown-item-inactive"
+                            }`}
                         >
                           {subItem.name}
                         </Link>
@@ -336,9 +333,8 @@ export default function AppSidebar() {
             // Simple menu link
             <Link
               to={nav.path}
-              className={`menu-item group ${
-                isActive(nav.path) ? "menu-item-active" : "menu-item-inactive"
-              }`}
+              className={`menu-item group ${isActive(nav.path) ? "menu-item-active" : "menu-item-inactive"
+                }`}
             >
               <span className="menu-item-icon-size">{nav.icon}</span>
               {(isExpanded || isHovered || isMobileOpen) && (
@@ -357,15 +353,14 @@ export default function AppSidebar() {
       className={`fixed top-0 flex flex-col h-screen bg-white border-gray-200 z-50
   transition-all duration-300
   ${isRTL ? "right-0 border-l" : "left-0 border-r"}
-  ${
-    isMobileOpen
-      ? "w-[290px]"
-      : isExpanded
-        ? "w-[290px]"
-        : isHovered
+  ${isMobileOpen
           ? "w-[290px]"
-          : "w-[90px]"
-  }`}
+          : isExpanded
+            ? "w-[290px]"
+            : isHovered
+              ? "w-[290px]"
+              : "w-[90px]"
+        }`}
       onMouseEnter={() => {
         if (!isExpanded && !isMobileOpen) {
           setIsHovered(true);

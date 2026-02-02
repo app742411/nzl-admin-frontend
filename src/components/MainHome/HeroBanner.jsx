@@ -113,6 +113,12 @@
 // };
 
 // export default HeroBanner;
+
+
+
+
+
+//second version
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";

@@ -637,6 +637,7 @@ export const getAllInvoicesApi = async (params) => {
 
 
 
+
 export const getInvoiceDetails = async (paymentId) => {
   const response = await apiClient.get(
     `/api/admin/getInvoice/${paymentId}`
@@ -652,3 +653,17 @@ export const downloadInvoice = async (paymentId) => {
   );
   return response;
 };
+
+// GET USERS BY SEGMENT (ACTIVITY)
+export const getUsersBySegment = async (params) => {
+  try {
+    const res = await apiClient.get("/api/admin/getUsersBySegment", {
+      params,
+    });
+    return res.data;
+  } catch (error) {
+    console.error("getUsersBySegment error:", error);
+    throw error;
+  }
+};
+

@@ -7,6 +7,7 @@ import ReverseAuctionDetails from "../../components/AuctionManagement/auctions/A
 import { getSocket } from "../../socket";
 import { getAuctionById } from "../../api/authApi";
 import AuctionProductDetails from "../../components/AuctionManagement/auctions/AuctionProductDetails";
+import AuctionUsersList from "../../components/AuctionManagement/auctions/AuctionUsersList";
 
 const normalizeAuction = (data) => {
   return {
@@ -38,6 +39,9 @@ const normalizeAuction = (data) => {
       data.product?.images?.length > 0
         ? data.product.images
         : ["placeholder.png"],
+
+    // Users
+    users: data.users || [],
   };
 };
 
@@ -57,7 +61,7 @@ const AuctionDetails = () => {
     const fetchAuction = async () => {
       try {
         const res = await getAuctionById(id);
-        const data = res.data?.data || res.data;
+        const data = res.data || res; // Handle structure variation just in case
 
         if (!data) return;
 
@@ -92,7 +96,7 @@ const AuctionDetails = () => {
     if (!auction?.id) return;
 
     const socket = getSocket();
-    if (!socket) return; //  FIX
+    if (!socket) return;
 
     socket.emit("join-auction", auction.id);
 
@@ -124,13 +128,26 @@ const AuctionDetails = () => {
       <PageMeta title="Auction Details" />
       <PageBreadcrumb pageTitle="Auction Details" />
 
-      {/* LEFT + RIGHT BOX */}
+      {/* TOP: REVERSE AUCTION DETAILS CARD */}
       <ReverseAuctionDetails auction={auction} />
-      {/* AUCTION PRODUCT DETAILS */}
-      <AuctionProductDetails product={product} />
+
+      {/* BOTTOM: SIDE-BY-SIDE LAYOUT */}
+      <div className="flex flex-col lg:flex-row gap-8 mt-8">
+        {/* LEFT: PRODUCT DETAILS */}
+        <div className="w-full lg:w-7/12">
+          <AuctionProductDetails product={product} />
+        </div>
+
+        {/* RIGHT: ACTION USERS LIST */}
+        <div className="w-full lg:w-5/12">
+          <AuctionUsersList users={auction.users} />
+        </div>
+      </div>
 
       {/* ACTIVITY LOG */}
-      <AuctionActivityLog logs={activityLogs} />
+      <div className="mt-8">
+        <AuctionActivityLog logs={activityLogs} />
+      </div>
     </>
   );
 };

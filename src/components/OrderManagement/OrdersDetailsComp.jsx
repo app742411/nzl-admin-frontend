@@ -81,6 +81,7 @@ export default function OrdersDetailsComp() {
     const taxAmount = Number(order.tax_amount || 0);
     const currency = order.currency || "SAR";
     const productImage = (order.images && order.images.length > 0) ? order.images[0] : null;
+    const auctionType = order.auction_type || "N/A";
 
     // Formatted Money
     const formatMoney = (amount) => {
@@ -264,7 +265,7 @@ export default function OrdersDetailsComp() {
                                 <p className="font-semibold text-gray-900 dark:text-white">
                                     {order.buyer_first_name} {order.buyer_last_name}
                                 </p>
-                                <p className="text-sm text-gray-500">Buy Together Buyer</p>
+                                <p className="text-sm text-gray-500">{order.auction_type}</p>
                             </div>
                         </div>
 

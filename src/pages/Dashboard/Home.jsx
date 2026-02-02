@@ -21,15 +21,16 @@ export default function Home() {
           <EcommerceMetrics />
         </div>
 
-        <div className="col-span-12 xl:col-span-4">
+        <div className="col-span-12 xl:col-span-5">
           <MonthlyTarget />
         </div>
 
-        <div className="col-span-8">
-          <StatisticsChart />
-        </div>
-        <div className="col-span-12 space-y-6 xl:col-span-6">
+        <div className="col-span-7">
           <MonthlySalesChart />
+        </div>
+        <div className="col-span-12">
+
+          <StatisticsChart />
         </div>
         <div className="col-span-12">
           <QuickAction />

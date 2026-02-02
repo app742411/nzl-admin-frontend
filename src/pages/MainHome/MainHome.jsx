@@ -14,6 +14,11 @@ import StayInTheLoop from "../../components/MainHome/StayInTheLoop";
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import HeroBannerdemo from "../../components/MainHome/herodemo";
+import HowItWorksCompDemo from "../../components/MainHome/howitsworkscompdemo";
+import ShoppingComparisonDemo from "../../components/MainHome/ShoppingComparisonDemo";
+import BuyTogetherDemo from "../../components/MainHome/BuyTogetherDemo";
+import NZLExperienceDemo from "../../components/MainHome/NZLExperienceDemo";
 
 // const MainHome = () => {
 //   return (
@@ -62,13 +67,18 @@ const MainHome = () => {
 
   return (
     <>
-      <HeroBanner />
+      <HeroBannerdemo />
+      {/* <HeroBanner /> */}
       <AboutNZL />
+      <ShoppingComparisonDemo />
+      <BuyTogetherDemo />
+      <NZLExperienceDemo />
       <TrustNZL />
+      <HowItWorksCompDemo />
       <ArsenalSection />
       <StayConnectedSection />
       <TestimonialsMarquee />
-      <FAQSection/>
+      <FAQSection />
       <StayInTheLoop />
       <DownloadAppSection />
     </>

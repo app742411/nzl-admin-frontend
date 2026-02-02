@@ -43,6 +43,7 @@ import UserList from "./pages/Users/UserList";
 import OrderList from "./pages/Order_management/OrderList";
 import OrdersDetails from "./pages/Order_management/OrdersDetails";
 import ViewDetails from "./pages/Users/UserDetails";
+import ActivityUser from "./pages/Users/ActivityUser";
 
 // COUPON
 import Coupon from "./pages/CouponManagement/Coupon";
@@ -156,6 +157,13 @@ export default function App() {
                 element={<ProtectedRoute requiredPermission="view_users" />}
               >
                 <Route index element={<ViewDetails />} />
+              </Route>
+
+              <Route
+                path="/activity-users"
+                element={<ProtectedRoute requiredPermission="view_users" />}
+              >
+                <Route index element={<ActivityUser />} />
               </Route>
 
               {/* AUCTIONS */}
