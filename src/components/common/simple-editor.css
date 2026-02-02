@@ -1,0 +1,37 @@
+.simple-editor {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.editor-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.editor-toolbar button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.editor-toolbar button.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.editor-content {
+  min-height: 200px;
+  padding: 15px;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}

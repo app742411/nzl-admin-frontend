@@ -1,0 +1,30 @@
+/* TipTap base */
+.tiptap-container {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  background: white;
+  min-height: 150px;
+}
+
+/* Editor text */
+.tiptap-container .ProseMirror {
+  min-height: 120px;
+  outline: none;
+}
+
+/* Basic styles */
+.ProseMirror p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  margin-left: 18px;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  margin-left: 18px;
+}
