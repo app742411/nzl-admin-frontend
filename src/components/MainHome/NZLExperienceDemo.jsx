@@ -16,32 +16,32 @@ const features = [
     {
         title: "Real-Time Price Drops",
         desc: "Prices decrease every second automatically. No manual refreshing needed — watch the magic happen live.",
-        icon: <FaBolt />,
+        icon: "images/icons/flash.png",
     },
     {
         title: "Limited Quantity",
         desc: "Each deal has limited stock. Once it’s gone, it’s gone — creating real urgency and fair access.",
-        icon: <FaLayerGroup />,
+        icon: "images/icons/boxes.png",
     },
     {
         title: "Group Deals",
         desc: "Unlock bigger discounts when more people join. Share with friends and save together.",
-        icon: <FaUsers />,
+        icon: "images/icons/group.png",
     },
     {
         title: "Instant Notifications",
         desc: "Get alerts when deals go live, when prices drop, or when your target price is reached.",
-        icon: <FaBell />,
+        icon: "images/icons/bell.png",
     },
     {
         title: "100% Genuine Products",
         desc: "All items are authentic and sourced from authorized sellers across Saudi Arabia.",
-        icon: <FaShieldAlt />,
+        icon: "images/icons/genuine.png",
     },
     {
         title: "Fast Delivery",
         desc: "Free delivery across Saudi Arabia with real-time order tracking to your doorstep.",
-        icon: <FaTruck />,
+        icon: "images/icons/fast-delivery.png",
     },
 ];
 
@@ -99,19 +99,22 @@ const NZLExperienceSection = () => {
                             whileHover={{ y: -6 }}
                             className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
                         >
-                            {/* Icon */}
-                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white text-xl group-hover:scale-110 transition-transform">
-                                {feature.icon}
+                            {/* Icon + Title in single line */}
+                            <div className="flex items-center gap-3 mb-3">
+                                {/* Icon */}
+                                <div className="flex h-12 w-12 items-center justify-center rounded-xl  text-white text-xl group-hover:scale-110 transition-transform">
+                                    <img src={feature.icon} alt={feature.title} className="h-full w-full object-contain" />
+
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-lg font-semibold text-gray-900">{feature.title}</h3>
                             </div>
 
-                            {/* Content */}
-                            <h3 className="text-lg font-semibold text-gray-900">
-                                {feature.title}
-                            </h3>
-                            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                                {feature.desc}
-                            </p>
+                            {/* Description */}
+                            <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
                         </motion.div>
+
                     ))}
                 </motion.div>
             </div>

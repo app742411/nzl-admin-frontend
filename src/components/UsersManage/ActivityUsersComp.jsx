@@ -66,7 +66,7 @@ const ActivityUsersComp = () => {
                 limit: 10,
             };
 
-            // ✅ Only send segment if NOT ALL_USERS
+            //  Only send segment if NOT ALL_USERS
             if (segment !== "ALL_USERS") {
                 params.segment = segment;
             }

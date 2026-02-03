@@ -104,24 +104,40 @@ const BuyTogetherDemo = () => {
 
                             {/* Avatars */}
                             <div className="flex justify-center -space-x-2 mb-8">
-                                {[...Array(8)].map((_, i) => (
-                                    <motion.div
+                                {/* Example user images */}
+                                {[
+                                    "/images/user/user-01.jpg",
+                                    "/images/user/user-02.jpg",
+                                    "/images/user/user-03.jpg",
+                                    "/images/user/user-04.jpg",
+                                    "/images/user/user-05.jpg",
+                                    "/images/user/user-06.jpg",
+                                    "/images/user/user-07.jpg",
+                                    "/images/user/user-08.jpg",
+                                ].map((img, i) => (
+                                    <motion.img
                                         key={i}
+                                        src={img}
+                                        alt={`User ${i + 1}`}
                                         initial={{ scale: 0, opacity: 0 }}
                                         whileInView={{ scale: 1, opacity: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: i * 0.1 + 0.5, type: "spring" }}
-                                        className="h-10 w-10 rounded-full border-2 border-white bg-blue-500 flex items-center justify-center text-white text-xs font-bold shadow-sm"
-                                    >
-                                        U{i + 1}
-                                    </motion.div>
+                                        className="h-10 w-10 rounded-full border-2 border-white object-cover shadow-sm"
+                                    />
                                 ))}
+
+                                {/* Empty placeholders */}
                                 {[...Array(2)].map((_, i) => (
-                                    <div key={`empty-${i}`} className="h-10 w-10 rounded-full border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center text-gray-300 text-xs">
+                                    <div
+                                        key={`empty-${i}`}
+                                        className="h-10 w-10 rounded-full border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center text-gray-300 text-xs"
+                                    >
                                         ?
                                     </div>
                                 ))}
                             </div>
+
 
                             {/* Progress Bar */}
                             <div className="mb-2 flex justify-between text-sm font-medium">
